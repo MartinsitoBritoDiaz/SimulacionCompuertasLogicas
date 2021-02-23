@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoSimulacionCompuertasLogicas", "ProyectoSimulacionCompuertasLogicas\ProyectoSimulacionCompuertasLogicas.csproj", "{149B3303-C0D7-4712-8D2C-79C49F29DBA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{149B3303-C0D7-4712-8D2C-79C49F29DBA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149B3303-C0D7-4712-8D2C-79C49F29DBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149B3303-C0D7-4712-8D2C-79C49F29DBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149B3303-C0D7-4712-8D2C-79C49F29DBA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A7405E0-96C0-4A79-BC8D-FC0D70570CC9}
+	EndGlobalSection
+EndGlobal
