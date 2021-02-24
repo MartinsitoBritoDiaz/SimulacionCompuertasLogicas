@@ -784,5 +784,6 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             e.Handled = !validKeys.Contains((Keys)e.KeyChar);
         }
+
     }
 }

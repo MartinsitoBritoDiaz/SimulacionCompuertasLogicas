@@ -338,9 +338,9 @@ namespace ProyectoSimulacionCompuertasLogicas
             // InicioPictureBox
             // 
             this.InicioPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("InicioPictureBox.Image")));
-            this.InicioPictureBox.Location = new System.Drawing.Point(974, 192);
+            this.InicioPictureBox.Location = new System.Drawing.Point(966, 192);
             this.InicioPictureBox.Name = "InicioPictureBox";
-            this.InicioPictureBox.Size = new System.Drawing.Size(81, 57);
+            this.InicioPictureBox.Size = new System.Drawing.Size(99, 73);
             this.InicioPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.InicioPictureBox.TabIndex = 31;
             this.InicioPictureBox.TabStop = false;
