@@ -377,6 +377,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.ResultadoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResultadoTextBox.Location = new System.Drawing.Point(820, 425);
             this.ResultadoTextBox.Name = "ResultadoTextBox";
+            this.ResultadoTextBox.ReadOnly = true;
             this.ResultadoTextBox.Size = new System.Drawing.Size(163, 30);
             this.ResultadoTextBox.TabIndex = 34;
             // 

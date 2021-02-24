@@ -202,13 +202,241 @@ namespace ProyectoSimulacionCompuertasLogicas
             if (BitsTextBox.TextLength != Bits)
                 errorProvider.SetError(BitsTextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
             else
-                ObtenerResultado(Compuerta1, Compuerta2, Compuerta3);
+            {
+                ResultadoTextBox.Text = Convert.ToString(ObtenerResultado3(Compuerta3, ObtenerResultado1(Compuerta1), ObtenerResultado2(Compuerta2, ObtenerResultado1(Compuerta1))));
+            }
 
         }
 
-        private void ObtenerResultados()
+        public int ObtenerResultado1(string c1)
         {
+            int resultado1 = 0;
+            char[] arrayChar = BitsTextBox.Text.ToCharArray();
 
+            if (String.Equals(c1, "YES"))
+            {
+                if (arrayChar[0] == '1')
+                    resultado1 = 0;
+                else
+                    resultado1 = 1;
+            }
+
+            if (String.Equals(c1, "NOT"))
+            {
+                if (arrayChar[0] == '1')
+                    resultado1 = 1;
+                else
+                    resultado1 = 0;
+            }
+
+            if (String.Equals(c1, "AND"))
+            {
+                if (arrayChar[0] == '0' && arrayChar[1] == '0')
+                    resultado1 = 0;
+                else
+                    resultado1 = 1;
+            }
+
+            if (String.Equals(c1, "NAND"))
+            {
+                if (arrayChar[0] == '1' && arrayChar[1] == '1')
+                    resultado1 = 0;
+                else
+                    resultado1 = 1;
+            }
+
+            if (String.Equals(c1, "OR"))
+            {
+                if (arrayChar[0] == '0' && arrayChar[1] == '0')
+                    resultado1 = 0;
+                else
+                    resultado1 = 1;
+            }
+
+            if (String.Equals(c1, "NOR"))
+            {
+                if (arrayChar[0] == '0' && arrayChar[1] == '0')
+                    resultado1 = 1;
+                else
+                    resultado1 = 0;
+            }
+
+            if (String.Equals(c1, "XOR"))
+            {
+                if (arrayChar[0] == '0' && arrayChar[1] == '0')
+                    resultado1 = 0;
+                else 
+                    if (arrayChar[0] == '1' && arrayChar[1] == '1')
+                        resultado1 = 0;
+                    else
+                        resultado1 = 1;
+            }
+
+            if (String.Equals(c1, "XNOR"))
+            {
+                if (arrayChar[0] == '0' && arrayChar[1] == '0')
+                    resultado1 = 1;
+                else
+                    if (arrayChar[0] == '1' && arrayChar[1] == '1')
+                    resultado1 = 1;
+                else
+                    resultado1 = 0;
+
+            } return resultado1;
+        }
+        public int ObtenerResultado2(string c,int resultado1)
+        {
+            int resultado2 = 0;
+            char[] arrayChar = BitsTextBox.Text.ToCharArray();
+
+            if (String.Equals(c, "YES"))
+            {
+                if (resultado1 == '1')
+                    resultado2 = 0;
+                else
+                    resultado2 = 1;
+            }
+
+            if (String.Equals(c, "NOT"))
+            {
+                if (resultado1 == '1')
+                    resultado2 = 1;
+                else
+                    resultado2 = 0;
+            }
+
+            if (String.Equals(c, "AND"))
+            {
+                if (arrayChar[2] == '0' && resultado1 == '0')
+                    resultado2 = 0;
+                else
+                    resultado2 = 1;
+            }
+
+            if (String.Equals(c, "NAND"))
+            {
+                if (arrayChar[2] == '1' && resultado1 == '1')
+                    resultado2 = 0;
+                else
+                    resultado2 = 1;
+            }
+
+            if (String.Equals(c, "OR"))
+            {
+                if (arrayChar[2] == '0' && resultado1 == '0')
+                    resultado2 = 0;
+                else
+                    resultado2 = 1;
+            }
+
+            if (String.Equals(c, "NOR"))
+            {
+                if (arrayChar[2] == '0' && resultado1 == '0')
+                    resultado2 = 1;
+                else
+                    resultado2 = 0;
+            }
+
+            if (String.Equals(c, "XOR"))
+            {
+                if (arrayChar[2] == '0' && resultado1 == '0')
+                    resultado2 = 0;
+                else
+                    if (arrayChar[2] == '1' && resultado1 == '1')
+                    resultado2 = 0;
+                else
+                    resultado2 = 1;
+            }
+
+            if (String.Equals(c, "XNOR"))
+            {
+                if (arrayChar[2] == '0' && resultado1 == '0')
+                    resultado2 = 1;
+                else
+                    if (arrayChar[2] == '1' && resultado1 == '1')
+                    resultado2 = 1;
+                else
+                    resultado2 = 0;
+
+            }
+            return resultado2;
+        }
+        public int ObtenerResultado3(string c, int resultado1, int resultado2)
+        {
+            int resultado3 = 0;
+            char[] arrayChar = BitsTextBox.Text.ToCharArray();
+
+            if (String.Equals(c, "YES"))
+            {
+                if (resultado2 == '1')
+                    resultado3 = 0;
+                else
+                    resultado3 = 1;
+            }
+
+            if (String.Equals(c, "NOT"))
+            {
+                if (resultado2 == '1')
+                    resultado3 = 1;
+                else
+                    resultado3 = 0;
+            }
+
+            if (String.Equals(c, "AND"))
+            {
+                if (arrayChar[3] == '0' && resultado2 == '0')
+                    resultado3 = 0;
+                else
+                    resultado3 = 1;
+            }
+
+            if (String.Equals(c, "NAND"))
+            {
+                if (arrayChar[3] == '1' && resultado2 == '1')
+                    resultado3 = 0;
+                else
+                    resultado3 = 1;
+            }
+
+            if (String.Equals(c, "OR"))
+            {
+                if (arrayChar[3] == '0' && resultado2 == '0')
+                    resultado3 = 0;
+                else
+                    resultado3 = 1;
+            }
+
+            if (String.Equals(c, "NOR"))
+            {
+                if (arrayChar[3] == '0' && resultado2 == '0')
+                    resultado3 = 1;
+                else
+                    resultado3 = 0;
+            }
+
+            if (String.Equals(c, "XOR"))
+            {
+                if (arrayChar[3] == '0' && resultado2 == '0')
+                    resultado3 = 0;
+                else
+                    if (arrayChar[2] == '1' && resultado1 == '1')
+                    resultado3 = 0;
+                else
+                    resultado3 = 1;
+            }
+
+            if (String.Equals(c, "XNOR"))
+            {
+                if (arrayChar[3] == '0' && resultado2 == '0')
+                    resultado3 = 1;
+                else
+                    if (arrayChar[3] == '1' && resultado2 == '1')
+                    resultado3 = 1;
+                else
+                    resultado3 = 0;
+
+            }
+            return resultado3;
         }
         private void AsignarImagenesByte()
         {
