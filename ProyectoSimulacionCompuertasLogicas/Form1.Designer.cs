@@ -57,6 +57,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.button1.TabIndex = 1;
             this.button1.Text = "Inicio";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
