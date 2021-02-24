@@ -29,6 +29,7 @@ namespace ProyectoSimulacionCompuertasLogicas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimulacionCL));
             this.YESPictureBox = new System.Windows.Forms.PictureBox();
             this.NORpictureBox = new System.Windows.Forms.PictureBox();
@@ -56,6 +57,12 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.PrimerPictureBox = new System.Windows.Forms.PictureBox();
             this.SegundaPictureBox = new System.Windows.Forms.PictureBox();
             this.TerceraPictureBox = new System.Windows.Forms.PictureBox();
+            this.InicioPictureBox = new System.Windows.Forms.PictureBox();
+            this.BitsTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ResultadoTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.YESPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NORpictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ORpictureBox)).BeginInit();
@@ -67,6 +74,8 @@ namespace ProyectoSimulacionCompuertasLogicas
             ((System.ComponentModel.ISupportInitialize)(this.PrimerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SegundaPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TerceraPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InicioPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // YESPictureBox
@@ -153,7 +162,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(363, 78);
+            this.label1.Location = new System.Drawing.Point(295, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 25);
             this.label1.TabIndex = 10;
@@ -163,7 +172,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(322, 34);
+            this.label2.Location = new System.Drawing.Point(254, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(614, 29);
             this.label2.TabIndex = 11;
@@ -173,7 +182,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(578, 78);
+            this.label3.Location = new System.Drawing.Point(510, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 25);
             this.label3.TabIndex = 12;
@@ -183,7 +192,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(782, 78);
+            this.label4.Location = new System.Drawing.Point(714, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 25);
             this.label4.TabIndex = 13;
@@ -193,7 +202,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             this.TercerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TercerComboBox.FormattingEnabled = true;
-            this.TercerComboBox.Location = new System.Drawing.Point(787, 117);
+            this.TercerComboBox.Location = new System.Drawing.Point(719, 117);
             this.TercerComboBox.Name = "TercerComboBox";
             this.TercerComboBox.Size = new System.Drawing.Size(74, 24);
             this.TercerComboBox.TabIndex = 15;
@@ -203,7 +212,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             this.SegundoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SegundoComboBox.FormattingEnabled = true;
-            this.SegundoComboBox.Location = new System.Drawing.Point(583, 117);
+            this.SegundoComboBox.Location = new System.Drawing.Point(515, 117);
             this.SegundoComboBox.Name = "SegundoComboBox";
             this.SegundoComboBox.Size = new System.Drawing.Size(74, 24);
             this.SegundoComboBox.TabIndex = 16;
@@ -293,7 +302,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             this.PrimerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PrimerComboBox.FormattingEnabled = true;
-            this.PrimerComboBox.Location = new System.Drawing.Point(368, 117);
+            this.PrimerComboBox.Location = new System.Drawing.Point(300, 117);
             this.PrimerComboBox.Name = "PrimerComboBox";
             this.PrimerComboBox.Size = new System.Drawing.Size(74, 24);
             this.PrimerComboBox.TabIndex = 27;
@@ -301,7 +310,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // PrimerPictureBox
             // 
-            this.PrimerPictureBox.Location = new System.Drawing.Point(407, 288);
+            this.PrimerPictureBox.Location = new System.Drawing.Point(348, 403);
             this.PrimerPictureBox.Name = "PrimerPictureBox";
             this.PrimerPictureBox.Size = new System.Drawing.Size(112, 69);
             this.PrimerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -310,7 +319,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // SegundaPictureBox
             // 
-            this.SegundaPictureBox.Location = new System.Drawing.Point(571, 288);
+            this.SegundaPictureBox.Location = new System.Drawing.Point(512, 403);
             this.SegundaPictureBox.Name = "SegundaPictureBox";
             this.SegundaPictureBox.Size = new System.Drawing.Size(112, 69);
             this.SegundaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -319,18 +328,78 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // TerceraPictureBox
             // 
-            this.TerceraPictureBox.Location = new System.Drawing.Point(725, 288);
+            this.TerceraPictureBox.Location = new System.Drawing.Point(666, 403);
             this.TerceraPictureBox.Name = "TerceraPictureBox";
             this.TerceraPictureBox.Size = new System.Drawing.Size(112, 69);
             this.TerceraPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.TerceraPictureBox.TabIndex = 30;
             this.TerceraPictureBox.TabStop = false;
             // 
+            // InicioPictureBox
+            // 
+            this.InicioPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("InicioPictureBox.Image")));
+            this.InicioPictureBox.Location = new System.Drawing.Point(974, 192);
+            this.InicioPictureBox.Name = "InicioPictureBox";
+            this.InicioPictureBox.Size = new System.Drawing.Size(81, 57);
+            this.InicioPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.InicioPictureBox.TabIndex = 31;
+            this.InicioPictureBox.TabStop = false;
+            this.InicioPictureBox.Visible = false;
+            this.InicioPictureBox.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // BitsTextBox
+            // 
+            this.BitsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BitsTextBox.Location = new System.Drawing.Point(932, 156);
+            this.BitsTextBox.Name = "BitsTextBox";
+            this.BitsTextBox.Size = new System.Drawing.Size(165, 30);
+            this.BitsTextBox.TabIndex = 32;
+            this.BitsTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.BitsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(929, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(168, 25);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Introduzca los bits";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // ResultadoTextBox
+            // 
+            this.ResultadoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultadoTextBox.Location = new System.Drawing.Point(820, 425);
+            this.ResultadoTextBox.Name = "ResultadoTextBox";
+            this.ResultadoTextBox.Size = new System.Drawing.Size(163, 30);
+            this.ResultadoTextBox.TabIndex = 34;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(815, 378);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(147, 25);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "El Resultado es";
+            // 
             // SimulacionCL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1162, 765);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.ResultadoTextBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.BitsTextBox);
+            this.Controls.Add(this.InicioPictureBox);
             this.Controls.Add(this.TerceraPictureBox);
             this.Controls.Add(this.SegundaPictureBox);
             this.Controls.Add(this.PrimerPictureBox);
@@ -371,6 +440,8 @@ namespace ProyectoSimulacionCompuertasLogicas
             ((System.ComponentModel.ISupportInitialize)(this.PrimerPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SegundaPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TerceraPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InicioPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,5 +475,11 @@ namespace ProyectoSimulacionCompuertasLogicas
         private System.Windows.Forms.PictureBox PrimerPictureBox;
         private System.Windows.Forms.PictureBox SegundaPictureBox;
         private System.Windows.Forms.PictureBox TerceraPictureBox;
+        private System.Windows.Forms.PictureBox InicioPictureBox;
+        private System.Windows.Forms.TextBox BitsTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox ResultadoTextBox;
     }
 }
