@@ -63,6 +63,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.ResultadoTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.YESPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NORpictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ORpictureBox)).BeginInit();
@@ -76,6 +77,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             ((System.ComponentModel.ISupportInitialize)(this.TerceraPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InicioPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // YESPictureBox
@@ -338,9 +340,9 @@ namespace ProyectoSimulacionCompuertasLogicas
             // InicioPictureBox
             // 
             this.InicioPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("InicioPictureBox.Image")));
-            this.InicioPictureBox.Location = new System.Drawing.Point(966, 192);
+            this.InicioPictureBox.Location = new System.Drawing.Point(932, 192);
             this.InicioPictureBox.Name = "InicioPictureBox";
-            this.InicioPictureBox.Size = new System.Drawing.Size(99, 73);
+            this.InicioPictureBox.Size = new System.Drawing.Size(70, 62);
             this.InicioPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.InicioPictureBox.TabIndex = 31;
             this.InicioPictureBox.TabStop = false;
@@ -391,11 +393,23 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.label6.TabIndex = 35;
             this.label6.Text = "El Resultado es";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1028, 192);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(69, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 36;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
             // SimulacionCL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1162, 765);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ResultadoTextBox);
             this.Controls.Add(this.label5);
@@ -443,6 +457,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             ((System.ComponentModel.ISupportInitialize)(this.TerceraPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InicioPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,5 +497,6 @@ namespace ProyectoSimulacionCompuertasLogicas
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ResultadoTextBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

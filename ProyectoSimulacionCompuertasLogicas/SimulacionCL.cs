@@ -29,6 +29,22 @@ namespace ProyectoSimulacionCompuertasLogicas
             AsignarImagenesByte();
         }
 
+        private void Limpiar()
+        {
+            BitsTextBox.Text = "";
+            ResultadoTextBox.Text = "";
+            YEScheckBox.Checked = false;
+            NOTcheckBox.Checked = false;      
+            ANDcheckBox.Checked = false;    
+            NANDcheckBox.Checked = false;    
+            ORcheckBox.Checked = false;    
+            NORcheckBox.Checked = false;    
+            XORcheckBox.Checked = false;    
+            XNORcheckBox.Checked = false;
+            PrimerComboBox.SelectedIndex = -1;
+            SegundoComboBox.SelectedIndex = -1;
+            TercerComboBox.SelectedIndex = -1;
+        }
         private void ValidarEntrada()
         {
             errorProvider.Clear();
@@ -203,38 +219,39 @@ namespace ProyectoSimulacionCompuertasLogicas
                 errorProvider.SetError(BitsTextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
             else
             {
-                ResultadoTextBox.Text = Convert.ToString(ObtenerResultado3(Compuerta3, ObtenerResultado1(Compuerta1), ObtenerResultado2(Compuerta2, ObtenerResultado1(Compuerta1))));
+                ResultadoTextBox.Text = Convert.ToString(ObtenerResultado3(Compuerta1,Compuerta2,Compuerta3, ObtenerResultado1(Compuerta1), ObtenerResultado2(Compuerta1 ,Compuerta2, ObtenerResultado1(Compuerta1))));
             }
 
         }
 
         public int ObtenerResultado1(string c1)
         {
+
             int resultado1 = 0;
             char[] arrayChar = BitsTextBox.Text.ToCharArray();
 
             if (String.Equals(c1, "YES"))
             {
                 if (arrayChar[0] == '1')
-                    resultado1 = 0;
-                else
                     resultado1 = 1;
+                else
+                    resultado1 = 0;
             }
 
             if (String.Equals(c1, "NOT"))
             {
                 if (arrayChar[0] == '1')
-                    resultado1 = 1;
-                else
                     resultado1 = 0;
+                else
+                    resultado1 = 1;
             }
 
             if (String.Equals(c1, "AND"))
             {
-                if (arrayChar[0] == '0' && arrayChar[1] == '0')
-                    resultado1 = 0;
-                else
+                if (arrayChar[0] == '1' && arrayChar[1] == '1')
                     resultado1 = 1;
+                else
+                    resultado1 = 0;
             }
 
             if (String.Equals(c1, "NAND"))
@@ -284,38 +301,42 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             } return resultado1;
         }
-        public int ObtenerResultado2(string c,int resultado1)
+        public int ObtenerResultado2(string c1,string c,int resultado1)
         {
             int resultado2 = 0;
+            int indice = 2;
             char[] arrayChar = BitsTextBox.Text.ToCharArray();
 
             if (String.Equals(c, "YES"))
             {
-                if (resultado1 == '1')
-                    resultado2 = 0;
-                else
+                if (resultado1 == 1)
                     resultado2 = 1;
+                else
+                    resultado2 = 0;
             }
 
             if (String.Equals(c, "NOT"))
             {
-                if (resultado1 == '1')
-                    resultado2 = 1;
-                else
+                if (resultado1 == 1)
                     resultado2 = 0;
+                else
+                    resultado2 = 1;
             }
+
+            if (String.Equals(c1, "YES") || (String.Equals(c1, "NOT")))
+                indice = 1;
 
             if (String.Equals(c, "AND"))
             {
-                if (arrayChar[2] == '0' && resultado1 == '0')
-                    resultado2 = 0;
-                else
+                if (arrayChar[indice] == '1' && resultado1 == 1)
                     resultado2 = 1;
+                else
+                    resultado2 = 0;
             }
 
             if (String.Equals(c, "NAND"))
             {
-                if (arrayChar[2] == '1' && resultado1 == '1')
+                if (arrayChar[indice] == '1' && resultado1 == 1)
                     resultado2 = 0;
                 else
                     resultado2 = 1;
@@ -323,7 +344,7 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             if (String.Equals(c, "OR"))
             {
-                if (arrayChar[2] == '0' && resultado1 == '0')
+                if (arrayChar[indice] == '0' && resultado1 == 0)
                     resultado2 = 0;
                 else
                     resultado2 = 1;
@@ -331,7 +352,7 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             if (String.Equals(c, "NOR"))
             {
-                if (arrayChar[2] == '0' && resultado1 == '0')
+                if (arrayChar[indice] == '0' && resultado1 == 0)
                     resultado2 = 1;
                 else
                     resultado2 = 0;
@@ -339,10 +360,10 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             if (String.Equals(c, "XOR"))
             {
-                if (arrayChar[2] == '0' && resultado1 == '0')
+                if (arrayChar[indice] == '0' && resultado1 == 0)
                     resultado2 = 0;
                 else
-                    if (arrayChar[2] == '1' && resultado1 == '1')
+                    if (arrayChar[indice] == '1' && resultado1 == 1)
                     resultado2 = 0;
                 else
                     resultado2 = 1;
@@ -350,49 +371,63 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             if (String.Equals(c, "XNOR"))
             {
-                if (arrayChar[2] == '0' && resultado1 == '0')
+                if (arrayChar[indice] == '0' && resultado1 == 0)
                     resultado2 = 1;
                 else
-                    if (arrayChar[2] == '1' && resultado1 == '1')
+                    if (arrayChar[indice] == '1' && resultado1 == 1)
                     resultado2 = 1;
                 else
                     resultado2 = 0;
 
             }
+
             return resultado2;
         }
-        public int ObtenerResultado3(string c, int resultado1, int resultado2)
+        public int ObtenerResultado3(string c1, string c2, string c, int resultado1, int resultado2)
         {
             int resultado3 = 0;
+            int indice = 1;
             char[] arrayChar = BitsTextBox.Text.ToCharArray();
 
             if (String.Equals(c, "YES"))
             {
-                if (resultado2 == '1')
-                    resultado3 = 0;
-                else
+                if (resultado2 == 1)
                     resultado3 = 1;
+                else
+                    resultado3 = 0;
             }
 
             if (String.Equals(c, "NOT"))
             {
-                if (resultado2 == '1')
-                    resultado3 = 1;
-                else
+                if (resultado2 == 1)
                     resultado3 = 0;
+                else
+                    resultado3 = 1;
             }
 
-            if (String.Equals(c, "AND"))
-            {
-                if (arrayChar[3] == '0' && resultado2 == '0')
-                    resultado3 = 0;
+            if ((!String.Equals(c1, "YES") || !String.Equals(c1, "NOT")) && (String.Equals(c2, "YES") || String.Equals(c2, "NOT")))
+                indice = 2;
+            else
+                if ((String.Equals(c1, "YES") || String.Equals(c1, "NOT")) && (!String.Equals(c2, "YES") || !String.Equals(c2, "NOT")))
+                    indice = 2;
                 else
-                    resultado3 = 1;
-            }
+                    if ((!String.Equals(c1, "YES") || !String.Equals(c1, "NOT")) && (!String.Equals(c2, "YES") || !String.Equals(c2, "NOT")))
+                        indice = 3;
+
+            if ((String.Equals(c1, "YES") || String.Equals(c1, "NOT")) && (String.Equals(c2, "YES") || String.Equals(c2, "NOT")))
+                indice = 1;
+
+                if (String.Equals(c, "AND"))
+                {
+                    if (arrayChar[indice] == '1' && resultado2 == 1)
+                        resultado3 = 1;
+                    else
+                        resultado3 = 0;
+                }
 
             if (String.Equals(c, "NAND"))
             {
-                if (arrayChar[3] == '1' && resultado2 == '1')
+                if (arrayChar[indice] == '1' && resultado2 == 1)
                     resultado3 = 0;
                 else
                     resultado3 = 1;
@@ -400,7 +435,7 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             if (String.Equals(c, "OR"))
             {
-                if (arrayChar[3] == '0' && resultado2 == '0')
+                if (arrayChar[indice] == '0' && resultado2 == 0)
                     resultado3 = 0;
                 else
                     resultado3 = 1;
@@ -408,7 +443,7 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             if (String.Equals(c, "NOR"))
             {
-                if (arrayChar[3] == '0' && resultado2 == '0')
+                if (arrayChar[indice] == '0' && resultado2 == 0)
                     resultado3 = 1;
                 else
                     resultado3 = 0;
@@ -416,10 +451,10 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             if (String.Equals(c, "XOR"))
             {
-                if (arrayChar[3] == '0' && resultado2 == '0')
+                if (arrayChar[indice] == '0' && resultado2 == 0)
                     resultado3 = 0;
                 else
-                    if (arrayChar[2] == '1' && resultado1 == '1')
+                    if (arrayChar[indice] == '1' && resultado1 == 1)
                     resultado3 = 0;
                 else
                     resultado3 = 1;
@@ -427,10 +462,10 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             if (String.Equals(c, "XNOR"))
             {
-                if (arrayChar[3] == '0' && resultado2 == '0')
+                if (arrayChar[indice] == '0' && resultado2 == 0)
                     resultado3 = 1;
                 else
-                    if (arrayChar[3] == '1' && resultado2 == '1')
+                    if (arrayChar[indice] == '1' && resultado2 == 1)
                     resultado3 = 1;
                 else
                     resultado3 = 0;
@@ -727,7 +762,7 @@ namespace ProyectoSimulacionCompuertasLogicas
                 foreach (CheckBox chkBox in uncheckedControls) chkBox.Enabled = true;
             }
 
-            bool paso = YEScheckBox.Checked;
+            bool paso = XNORcheckBox.Checked;
 
             CambiarDatosCombo(paso, "XNOR");
             ValidarInicio();
@@ -785,5 +820,9 @@ namespace ProyectoSimulacionCompuertasLogicas
             e.Handled = !validKeys.Contains((Keys)e.KeyChar);
         }
 
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
     }
 }
