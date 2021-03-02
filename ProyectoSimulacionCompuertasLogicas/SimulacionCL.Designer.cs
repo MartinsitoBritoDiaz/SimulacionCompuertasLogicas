@@ -43,8 +43,8 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.TercerComboBox = new System.Windows.Forms.ComboBox();
-            this.SegundoComboBox = new System.Windows.Forms.ComboBox();
+            this.Tercer1ComboBox = new System.Windows.Forms.ComboBox();
+            this.Segundo1ComboBox = new System.Windows.Forms.ComboBox();
             this.YEScheckBox = new System.Windows.Forms.CheckBox();
             this.NOTcheckBox = new System.Windows.Forms.CheckBox();
             this.ANDcheckBox = new System.Windows.Forms.CheckBox();
@@ -53,17 +53,31 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.NORcheckBox = new System.Windows.Forms.CheckBox();
             this.XNORcheckBox = new System.Windows.Forms.CheckBox();
             this.XORcheckBox = new System.Windows.Forms.CheckBox();
-            this.PrimerComboBox = new System.Windows.Forms.ComboBox();
-            this.PrimerPictureBox = new System.Windows.Forms.PictureBox();
-            this.SegundaPictureBox = new System.Windows.Forms.PictureBox();
-            this.TerceraPictureBox = new System.Windows.Forms.PictureBox();
+            this.Primer1ComboBox = new System.Windows.Forms.ComboBox();
+            this.Primer1PictureBox = new System.Windows.Forms.PictureBox();
+            this.Segunda1PictureBox = new System.Windows.Forms.PictureBox();
+            this.Tercera1PictureBox = new System.Windows.Forms.PictureBox();
             this.InicioPictureBox = new System.Windows.Forms.PictureBox();
-            this.BitsTextBox = new System.Windows.Forms.TextBox();
+            this.Bits1TextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ResultadoTextBox = new System.Windows.Forms.TextBox();
+            this.ResultadoFila1TextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Tercera2PictureBox = new System.Windows.Forms.PictureBox();
+            this.Segunda2PictureBox = new System.Windows.Forms.PictureBox();
+            this.Primer2PictureBox = new System.Windows.Forms.PictureBox();
+            this.ResultadoFila2TextBox = new System.Windows.Forms.TextBox();
+            this.ResultadoColumna1TextBox = new System.Windows.Forms.TextBox();
+            this.ResultadoColumna2TextBox = new System.Windows.Forms.TextBox();
+            this.ResultadoColumna3TextBox = new System.Windows.Forms.TextBox();
+            this.Primer2ComboBox = new System.Windows.Forms.ComboBox();
+            this.Segundo2ComboBox = new System.Windows.Forms.ComboBox();
+            this.Tercer2ComboBox = new System.Windows.Forms.ComboBox();
+            this.Bits2TextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.VaciaPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.YESPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NORpictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ORpictureBox)).BeginInit();
@@ -72,16 +86,21 @@ namespace ProyectoSimulacionCompuertasLogicas
             ((System.ComponentModel.ISupportInitialize)(this.NOTpictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.XORpictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.XNORpictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PrimerPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SegundaPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TerceraPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Primer1PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Segunda1PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tercera1PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InicioPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tercera2PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Segunda2PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Primer2PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VaciaPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // YESPictureBox
             // 
+            this.YESPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.YESPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("YESPictureBox.Image")));
             this.YESPictureBox.Location = new System.Drawing.Point(28, 34);
             this.YESPictureBox.Name = "YESPictureBox";
@@ -92,6 +111,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // NORpictureBox
             // 
+            this.NORpictureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.NORpictureBox.Image = ((System.Drawing.Image)(resources.GetObject("NORpictureBox.Image")));
             this.NORpictureBox.Location = new System.Drawing.Point(28, 495);
             this.NORpictureBox.Name = "NORpictureBox";
@@ -102,6 +122,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // ORpictureBox
             // 
+            this.ORpictureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ORpictureBox.Image = ((System.Drawing.Image)(resources.GetObject("ORpictureBox.Image")));
             this.ORpictureBox.Location = new System.Drawing.Point(28, 403);
             this.ORpictureBox.Name = "ORpictureBox";
@@ -112,6 +133,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // NANDpictureBox
             // 
+            this.NANDpictureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.NANDpictureBox.Image = ((System.Drawing.Image)(resources.GetObject("NANDpictureBox.Image")));
             this.NANDpictureBox.Location = new System.Drawing.Point(28, 309);
             this.NANDpictureBox.Name = "NANDpictureBox";
@@ -122,6 +144,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // ANDpictureBox
             // 
+            this.ANDpictureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ANDpictureBox.Image = ((System.Drawing.Image)(resources.GetObject("ANDpictureBox.Image")));
             this.ANDpictureBox.Location = new System.Drawing.Point(28, 216);
             this.ANDpictureBox.Name = "ANDpictureBox";
@@ -132,6 +155,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // NOTpictureBox
             // 
+            this.NOTpictureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.NOTpictureBox.Image = ((System.Drawing.Image)(resources.GetObject("NOTpictureBox.Image")));
             this.NOTpictureBox.Location = new System.Drawing.Point(28, 121);
             this.NOTpictureBox.Name = "NOTpictureBox";
@@ -142,6 +166,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // XORpictureBox
             // 
+            this.XORpictureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.XORpictureBox.Image = ((System.Drawing.Image)(resources.GetObject("XORpictureBox.Image")));
             this.XORpictureBox.Location = new System.Drawing.Point(28, 589);
             this.XORpictureBox.Name = "XORpictureBox";
@@ -152,6 +177,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // XNORpictureBox
             // 
+            this.XNORpictureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.XNORpictureBox.Image = ((System.Drawing.Image)(resources.GetObject("XNORpictureBox.Image")));
             this.XNORpictureBox.Location = new System.Drawing.Point(28, 681);
             this.XNORpictureBox.Name = "XNORpictureBox";
@@ -162,9 +188,10 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(295, 78);
+            this.label1.Location = new System.Drawing.Point(358, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 25);
             this.label1.TabIndex = 10;
@@ -172,6 +199,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(254, 34);
@@ -182,9 +210,10 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(510, 78);
+            this.label3.Location = new System.Drawing.Point(514, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 25);
             this.label3.TabIndex = 12;
@@ -192,36 +221,40 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(714, 78);
+            this.label4.Location = new System.Drawing.Point(659, 83);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 25);
             this.label4.TabIndex = 13;
             this.label4.Text = "Tercera";
             // 
-            // TercerComboBox
+            // Tercer1ComboBox
             // 
-            this.TercerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TercerComboBox.FormattingEnabled = true;
-            this.TercerComboBox.Location = new System.Drawing.Point(719, 117);
-            this.TercerComboBox.Name = "TercerComboBox";
-            this.TercerComboBox.Size = new System.Drawing.Size(74, 24);
-            this.TercerComboBox.TabIndex = 15;
-            this.TercerComboBox.SelectedIndexChanged += new System.EventHandler(this.TercerComboBox_SelectedIndexChanged);
+            this.Tercer1ComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Tercer1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Tercer1ComboBox.FormattingEnabled = true;
+            this.Tercer1ComboBox.Location = new System.Drawing.Point(664, 122);
+            this.Tercer1ComboBox.Name = "Tercer1ComboBox";
+            this.Tercer1ComboBox.Size = new System.Drawing.Size(74, 24);
+            this.Tercer1ComboBox.TabIndex = 15;
+            this.Tercer1ComboBox.SelectedIndexChanged += new System.EventHandler(this.TercerComboBox_SelectedIndexChanged);
             // 
-            // SegundoComboBox
+            // Segundo1ComboBox
             // 
-            this.SegundoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SegundoComboBox.FormattingEnabled = true;
-            this.SegundoComboBox.Location = new System.Drawing.Point(515, 117);
-            this.SegundoComboBox.Name = "SegundoComboBox";
-            this.SegundoComboBox.Size = new System.Drawing.Size(74, 24);
-            this.SegundoComboBox.TabIndex = 16;
-            this.SegundoComboBox.SelectedIndexChanged += new System.EventHandler(this.SegundoComboBox_SelectedIndexChanged);
+            this.Segundo1ComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Segundo1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Segundo1ComboBox.FormattingEnabled = true;
+            this.Segundo1ComboBox.Location = new System.Drawing.Point(519, 122);
+            this.Segundo1ComboBox.Name = "Segundo1ComboBox";
+            this.Segundo1ComboBox.Size = new System.Drawing.Size(74, 24);
+            this.Segundo1ComboBox.TabIndex = 16;
+            this.Segundo1ComboBox.SelectedIndexChanged += new System.EventHandler(this.SegundoComboBox_SelectedIndexChanged);
             // 
             // YEScheckBox
             // 
+            this.YEScheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.YEScheckBox.AutoSize = true;
             this.YEScheckBox.Location = new System.Drawing.Point(164, 61);
             this.YEScheckBox.Name = "YEScheckBox";
@@ -232,6 +265,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // NOTcheckBox
             // 
+            this.NOTcheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.NOTcheckBox.AutoSize = true;
             this.NOTcheckBox.Location = new System.Drawing.Point(164, 150);
             this.NOTcheckBox.Name = "NOTcheckBox";
@@ -242,6 +276,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // ANDcheckBox
             // 
+            this.ANDcheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ANDcheckBox.AutoSize = true;
             this.ANDcheckBox.Location = new System.Drawing.Point(164, 248);
             this.ANDcheckBox.Name = "ANDcheckBox";
@@ -252,6 +287,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // NANDcheckBox
             // 
+            this.NANDcheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.NANDcheckBox.AutoSize = true;
             this.NANDcheckBox.Location = new System.Drawing.Point(164, 340);
             this.NANDcheckBox.Name = "NANDcheckBox";
@@ -262,6 +298,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // ORcheckBox
             // 
+            this.ORcheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ORcheckBox.AutoSize = true;
             this.ORcheckBox.Location = new System.Drawing.Point(164, 430);
             this.ORcheckBox.Name = "ORcheckBox";
@@ -272,6 +309,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // NORcheckBox
             // 
+            this.NORcheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.NORcheckBox.AutoSize = true;
             this.NORcheckBox.Location = new System.Drawing.Point(164, 521);
             this.NORcheckBox.Name = "NORcheckBox";
@@ -282,6 +320,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // XNORcheckBox
             // 
+            this.XNORcheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.XNORcheckBox.AutoSize = true;
             this.XNORcheckBox.Location = new System.Drawing.Point(164, 709);
             this.XNORcheckBox.Name = "XNORcheckBox";
@@ -292,6 +331,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             // XORcheckBox
             // 
+            this.XORcheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.XORcheckBox.AutoSize = true;
             this.XORcheckBox.Location = new System.Drawing.Point(164, 617);
             this.XORcheckBox.Name = "XORcheckBox";
@@ -300,47 +340,52 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.XORcheckBox.UseVisualStyleBackColor = true;
             this.XORcheckBox.CheckedChanged += new System.EventHandler(this.XORcheckBox_CheckedChanged);
             // 
-            // PrimerComboBox
+            // Primer1ComboBox
             // 
-            this.PrimerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.PrimerComboBox.FormattingEnabled = true;
-            this.PrimerComboBox.Location = new System.Drawing.Point(300, 117);
-            this.PrimerComboBox.Name = "PrimerComboBox";
-            this.PrimerComboBox.Size = new System.Drawing.Size(74, 24);
-            this.PrimerComboBox.TabIndex = 27;
-            this.PrimerComboBox.SelectedIndexChanged += new System.EventHandler(this.PrimerComboBox_SelectedIndexChanged);
+            this.Primer1ComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Primer1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Primer1ComboBox.FormattingEnabled = true;
+            this.Primer1ComboBox.Location = new System.Drawing.Point(363, 122);
+            this.Primer1ComboBox.Name = "Primer1ComboBox";
+            this.Primer1ComboBox.Size = new System.Drawing.Size(74, 24);
+            this.Primer1ComboBox.TabIndex = 27;
+            this.Primer1ComboBox.SelectedIndexChanged += new System.EventHandler(this.PrimerComboBox_SelectedIndexChanged);
             // 
-            // PrimerPictureBox
+            // Primer1PictureBox
             // 
-            this.PrimerPictureBox.Location = new System.Drawing.Point(348, 403);
-            this.PrimerPictureBox.Name = "PrimerPictureBox";
-            this.PrimerPictureBox.Size = new System.Drawing.Size(112, 69);
-            this.PrimerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PrimerPictureBox.TabIndex = 28;
-            this.PrimerPictureBox.TabStop = false;
+            this.Primer1PictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Primer1PictureBox.Location = new System.Drawing.Point(330, 350);
+            this.Primer1PictureBox.Name = "Primer1PictureBox";
+            this.Primer1PictureBox.Size = new System.Drawing.Size(112, 69);
+            this.Primer1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Primer1PictureBox.TabIndex = 28;
+            this.Primer1PictureBox.TabStop = false;
             // 
-            // SegundaPictureBox
+            // Segunda1PictureBox
             // 
-            this.SegundaPictureBox.Location = new System.Drawing.Point(512, 403);
-            this.SegundaPictureBox.Name = "SegundaPictureBox";
-            this.SegundaPictureBox.Size = new System.Drawing.Size(112, 69);
-            this.SegundaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.SegundaPictureBox.TabIndex = 29;
-            this.SegundaPictureBox.TabStop = false;
+            this.Segunda1PictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Segunda1PictureBox.Location = new System.Drawing.Point(494, 350);
+            this.Segunda1PictureBox.Name = "Segunda1PictureBox";
+            this.Segunda1PictureBox.Size = new System.Drawing.Size(112, 69);
+            this.Segunda1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Segunda1PictureBox.TabIndex = 29;
+            this.Segunda1PictureBox.TabStop = false;
             // 
-            // TerceraPictureBox
+            // Tercera1PictureBox
             // 
-            this.TerceraPictureBox.Location = new System.Drawing.Point(666, 403);
-            this.TerceraPictureBox.Name = "TerceraPictureBox";
-            this.TerceraPictureBox.Size = new System.Drawing.Size(112, 69);
-            this.TerceraPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.TerceraPictureBox.TabIndex = 30;
-            this.TerceraPictureBox.TabStop = false;
+            this.Tercera1PictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Tercera1PictureBox.Location = new System.Drawing.Point(648, 350);
+            this.Tercera1PictureBox.Name = "Tercera1PictureBox";
+            this.Tercera1PictureBox.Size = new System.Drawing.Size(112, 69);
+            this.Tercera1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Tercera1PictureBox.TabIndex = 30;
+            this.Tercera1PictureBox.TabStop = false;
             // 
             // InicioPictureBox
             // 
+            this.InicioPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.InicioPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("InicioPictureBox.Image")));
-            this.InicioPictureBox.Location = new System.Drawing.Point(932, 192);
+            this.InicioPictureBox.Location = new System.Drawing.Point(954, 203);
             this.InicioPictureBox.Name = "InicioPictureBox";
             this.InicioPictureBox.Size = new System.Drawing.Size(70, 62);
             this.InicioPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -349,21 +394,23 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.InicioPictureBox.Visible = false;
             this.InicioPictureBox.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // BitsTextBox
+            // Bits1TextBox
             // 
-            this.BitsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BitsTextBox.Location = new System.Drawing.Point(932, 156);
-            this.BitsTextBox.Name = "BitsTextBox";
-            this.BitsTextBox.Size = new System.Drawing.Size(165, 30);
-            this.BitsTextBox.TabIndex = 32;
-            this.BitsTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.BitsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.Bits1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Bits1TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bits1TextBox.Location = new System.Drawing.Point(1024, 78);
+            this.Bits1TextBox.Name = "Bits1TextBox";
+            this.Bits1TextBox.Size = new System.Drawing.Size(93, 30);
+            this.Bits1TextBox.TabIndex = 32;
+            this.Bits1TextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Bits1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(929, 116);
+            this.label5.Location = new System.Drawing.Point(949, 38);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(168, 25);
             this.label5.TabIndex = 33;
@@ -374,29 +421,32 @@ namespace ProyectoSimulacionCompuertasLogicas
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // ResultadoTextBox
+            // ResultadoFila1TextBox
             // 
-            this.ResultadoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResultadoTextBox.Location = new System.Drawing.Point(820, 425);
-            this.ResultadoTextBox.Name = "ResultadoTextBox";
-            this.ResultadoTextBox.ReadOnly = true;
-            this.ResultadoTextBox.Size = new System.Drawing.Size(163, 30);
-            this.ResultadoTextBox.TabIndex = 34;
+            this.ResultadoFila1TextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ResultadoFila1TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultadoFila1TextBox.Location = new System.Drawing.Point(834, 365);
+            this.ResultadoFila1TextBox.Name = "ResultadoFila1TextBox";
+            this.ResultadoFila1TextBox.ReadOnly = true;
+            this.ResultadoFila1TextBox.Size = new System.Drawing.Size(48, 30);
+            this.ResultadoFila1TextBox.TabIndex = 34;
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(815, 378);
+            this.label6.Location = new System.Drawing.Point(802, 570);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(147, 25);
+            this.label6.Size = new System.Drawing.Size(109, 25);
             this.label6.TabIndex = 35;
-            this.label6.Text = "El Resultado es";
+            this.label6.Text = "Resultados";
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1028, 192);
+            this.pictureBox1.Location = new System.Drawing.Point(1050, 203);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(69, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -404,21 +454,181 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
+            // Tercera2PictureBox
+            // 
+            this.Tercera2PictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Tercera2PictureBox.Location = new System.Drawing.Point(648, 461);
+            this.Tercera2PictureBox.Name = "Tercera2PictureBox";
+            this.Tercera2PictureBox.Size = new System.Drawing.Size(112, 69);
+            this.Tercera2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Tercera2PictureBox.TabIndex = 39;
+            this.Tercera2PictureBox.TabStop = false;
+            // 
+            // Segunda2PictureBox
+            // 
+            this.Segunda2PictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Segunda2PictureBox.Location = new System.Drawing.Point(494, 461);
+            this.Segunda2PictureBox.Name = "Segunda2PictureBox";
+            this.Segunda2PictureBox.Size = new System.Drawing.Size(112, 69);
+            this.Segunda2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Segunda2PictureBox.TabIndex = 38;
+            this.Segunda2PictureBox.TabStop = false;
+            // 
+            // Primer2PictureBox
+            // 
+            this.Primer2PictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Primer2PictureBox.Location = new System.Drawing.Point(330, 461);
+            this.Primer2PictureBox.Name = "Primer2PictureBox";
+            this.Primer2PictureBox.Size = new System.Drawing.Size(112, 69);
+            this.Primer2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Primer2PictureBox.TabIndex = 37;
+            this.Primer2PictureBox.TabStop = false;
+            // 
+            // ResultadoFila2TextBox
+            // 
+            this.ResultadoFila2TextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ResultadoFila2TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultadoFila2TextBox.Location = new System.Drawing.Point(834, 480);
+            this.ResultadoFila2TextBox.Name = "ResultadoFila2TextBox";
+            this.ResultadoFila2TextBox.ReadOnly = true;
+            this.ResultadoFila2TextBox.Size = new System.Drawing.Size(48, 30);
+            this.ResultadoFila2TextBox.TabIndex = 40;
+            // 
+            // ResultadoColumna1TextBox
+            // 
+            this.ResultadoColumna1TextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ResultadoColumna1TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultadoColumna1TextBox.Location = new System.Drawing.Point(363, 570);
+            this.ResultadoColumna1TextBox.Name = "ResultadoColumna1TextBox";
+            this.ResultadoColumna1TextBox.ReadOnly = true;
+            this.ResultadoColumna1TextBox.Size = new System.Drawing.Size(48, 30);
+            this.ResultadoColumna1TextBox.TabIndex = 41;
+            // 
+            // ResultadoColumna2TextBox
+            // 
+            this.ResultadoColumna2TextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ResultadoColumna2TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultadoColumna2TextBox.Location = new System.Drawing.Point(530, 570);
+            this.ResultadoColumna2TextBox.Name = "ResultadoColumna2TextBox";
+            this.ResultadoColumna2TextBox.ReadOnly = true;
+            this.ResultadoColumna2TextBox.Size = new System.Drawing.Size(48, 30);
+            this.ResultadoColumna2TextBox.TabIndex = 42;
+            // 
+            // ResultadoColumna3TextBox
+            // 
+            this.ResultadoColumna3TextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ResultadoColumna3TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultadoColumna3TextBox.Location = new System.Drawing.Point(678, 570);
+            this.ResultadoColumna3TextBox.Name = "ResultadoColumna3TextBox";
+            this.ResultadoColumna3TextBox.ReadOnly = true;
+            this.ResultadoColumna3TextBox.Size = new System.Drawing.Size(48, 30);
+            this.ResultadoColumna3TextBox.TabIndex = 43;
+            // 
+            // Primer2ComboBox
+            // 
+            this.Primer2ComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Primer2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Primer2ComboBox.FormattingEnabled = true;
+            this.Primer2ComboBox.Location = new System.Drawing.Point(363, 171);
+            this.Primer2ComboBox.Name = "Primer2ComboBox";
+            this.Primer2ComboBox.Size = new System.Drawing.Size(74, 24);
+            this.Primer2ComboBox.TabIndex = 46;
+            this.Primer2ComboBox.SelectedIndexChanged += new System.EventHandler(this.Primer2ComboBox_SelectedIndexChanged);
+            // 
+            // Segundo2ComboBox
+            // 
+            this.Segundo2ComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Segundo2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Segundo2ComboBox.FormattingEnabled = true;
+            this.Segundo2ComboBox.Location = new System.Drawing.Point(519, 171);
+            this.Segundo2ComboBox.Name = "Segundo2ComboBox";
+            this.Segundo2ComboBox.Size = new System.Drawing.Size(74, 24);
+            this.Segundo2ComboBox.TabIndex = 45;
+            this.Segundo2ComboBox.SelectedIndexChanged += new System.EventHandler(this.Segundo2ComboBox_SelectedIndexChanged);
+            // 
+            // Tercer2ComboBox
+            // 
+            this.Tercer2ComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Tercer2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Tercer2ComboBox.FormattingEnabled = true;
+            this.Tercer2ComboBox.Location = new System.Drawing.Point(664, 171);
+            this.Tercer2ComboBox.Name = "Tercer2ComboBox";
+            this.Tercer2ComboBox.Size = new System.Drawing.Size(74, 24);
+            this.Tercer2ComboBox.TabIndex = 44;
+            this.Tercer2ComboBox.SelectedIndexChanged += new System.EventHandler(this.Tercer2ComboBox_SelectedIndexChanged);
+            // 
+            // Bits2TextBox
+            // 
+            this.Bits2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Bits2TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bits2TextBox.Location = new System.Drawing.Point(1024, 137);
+            this.Bits2TextBox.Name = "Bits2TextBox";
+            this.Bits2TextBox.Size = new System.Drawing.Size(93, 30);
+            this.Bits2TextBox.TabIndex = 47;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(949, 83);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 25);
+            this.label7.TabIndex = 48;
+            this.label7.Text = "Fila 1";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(949, 142);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 25);
+            this.label8.TabIndex = 49;
+            this.label8.Text = "Fila 2";
+            // 
+            // VaciaPictureBox
+            // 
+            this.VaciaPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.VaciaPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("VaciaPictureBox.Image")));
+            this.VaciaPictureBox.Location = new System.Drawing.Point(1005, 480);
+            this.VaciaPictureBox.Name = "VaciaPictureBox";
+            this.VaciaPictureBox.Size = new System.Drawing.Size(112, 69);
+            this.VaciaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.VaciaPictureBox.TabIndex = 50;
+            this.VaciaPictureBox.TabStop = false;
+            this.VaciaPictureBox.Visible = false;
+            // 
             // SimulacionCL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1162, 765);
+            this.Controls.Add(this.VaciaPictureBox);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.Bits2TextBox);
+            this.Controls.Add(this.Primer2ComboBox);
+            this.Controls.Add(this.Segundo2ComboBox);
+            this.Controls.Add(this.Tercer2ComboBox);
+            this.Controls.Add(this.ResultadoColumna3TextBox);
+            this.Controls.Add(this.ResultadoColumna2TextBox);
+            this.Controls.Add(this.ResultadoColumna1TextBox);
+            this.Controls.Add(this.ResultadoFila2TextBox);
+            this.Controls.Add(this.Tercera2PictureBox);
+            this.Controls.Add(this.Segunda2PictureBox);
+            this.Controls.Add(this.Primer2PictureBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.ResultadoTextBox);
+            this.Controls.Add(this.ResultadoFila1TextBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.BitsTextBox);
+            this.Controls.Add(this.Bits1TextBox);
             this.Controls.Add(this.InicioPictureBox);
-            this.Controls.Add(this.TerceraPictureBox);
-            this.Controls.Add(this.SegundaPictureBox);
-            this.Controls.Add(this.PrimerPictureBox);
-            this.Controls.Add(this.PrimerComboBox);
+            this.Controls.Add(this.Tercera1PictureBox);
+            this.Controls.Add(this.Segunda1PictureBox);
+            this.Controls.Add(this.Primer1PictureBox);
+            this.Controls.Add(this.Primer1ComboBox);
             this.Controls.Add(this.XORcheckBox);
             this.Controls.Add(this.XNORcheckBox);
             this.Controls.Add(this.NORcheckBox);
@@ -427,8 +637,8 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.Controls.Add(this.ANDcheckBox);
             this.Controls.Add(this.NOTcheckBox);
             this.Controls.Add(this.YEScheckBox);
-            this.Controls.Add(this.SegundoComboBox);
-            this.Controls.Add(this.TercerComboBox);
+            this.Controls.Add(this.Segundo1ComboBox);
+            this.Controls.Add(this.Tercer1ComboBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -443,6 +653,7 @@ namespace ProyectoSimulacionCompuertasLogicas
             this.Controls.Add(this.YESPictureBox);
             this.Name = "SimulacionCL";
             this.Text = "SimulacionCL";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SimulacionCL_Load);
             ((System.ComponentModel.ISupportInitialize)(this.YESPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NORpictureBox)).EndInit();
@@ -452,12 +663,16 @@ namespace ProyectoSimulacionCompuertasLogicas
             ((System.ComponentModel.ISupportInitialize)(this.NOTpictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XORpictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XNORpictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PrimerPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SegundaPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TerceraPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Primer1PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Segunda1PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tercera1PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InicioPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tercera2PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Segunda2PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Primer2PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VaciaPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,8 +692,8 @@ namespace ProyectoSimulacionCompuertasLogicas
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox TercerComboBox;
-        private System.Windows.Forms.ComboBox SegundoComboBox;
+        private System.Windows.Forms.ComboBox Tercer1ComboBox;
+        private System.Windows.Forms.ComboBox Segundo1ComboBox;
         private System.Windows.Forms.CheckBox YEScheckBox;
         private System.Windows.Forms.CheckBox NOTcheckBox;
         private System.Windows.Forms.CheckBox ANDcheckBox;
@@ -487,16 +702,30 @@ namespace ProyectoSimulacionCompuertasLogicas
         private System.Windows.Forms.CheckBox NORcheckBox;
         private System.Windows.Forms.CheckBox XNORcheckBox;
         private System.Windows.Forms.CheckBox XORcheckBox;
-        private System.Windows.Forms.ComboBox PrimerComboBox;
-        private System.Windows.Forms.PictureBox PrimerPictureBox;
-        private System.Windows.Forms.PictureBox SegundaPictureBox;
-        private System.Windows.Forms.PictureBox TerceraPictureBox;
+        private System.Windows.Forms.ComboBox Primer1ComboBox;
+        private System.Windows.Forms.PictureBox Primer1PictureBox;
+        private System.Windows.Forms.PictureBox Segunda1PictureBox;
+        private System.Windows.Forms.PictureBox Tercera1PictureBox;
         private System.Windows.Forms.PictureBox InicioPictureBox;
-        private System.Windows.Forms.TextBox BitsTextBox;
+        private System.Windows.Forms.TextBox Bits1TextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox ResultadoTextBox;
+        private System.Windows.Forms.TextBox ResultadoFila1TextBox;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Tercera2PictureBox;
+        private System.Windows.Forms.PictureBox Segunda2PictureBox;
+        private System.Windows.Forms.PictureBox Primer2PictureBox;
+        private System.Windows.Forms.TextBox ResultadoColumna3TextBox;
+        private System.Windows.Forms.TextBox ResultadoColumna2TextBox;
+        private System.Windows.Forms.TextBox ResultadoColumna1TextBox;
+        private System.Windows.Forms.TextBox ResultadoFila2TextBox;
+        private System.Windows.Forms.ComboBox Primer2ComboBox;
+        private System.Windows.Forms.ComboBox Segundo2ComboBox;
+        private System.Windows.Forms.ComboBox Tercer2ComboBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox Bits2TextBox;
+        private System.Windows.Forms.PictureBox VaciaPictureBox;
     }
 }
