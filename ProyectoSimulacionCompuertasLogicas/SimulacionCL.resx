@@ -4774,8 +4774,8 @@
   </metadata>
   <data name="VaciaPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAWgAAAD6CAYAAACMPN0pAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAANJSURBVHhe7cghAcBAEASx92/6amD5FASE5N0dAD80E4De
+        iVBORw0KGgoAAAANSUhEUgAAAWgAAAD6CAYAAACMPN0pAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAA0lJREFUeF7tyCEBwEAQBLH3b/pqYPkUBITk3R0APzQTgN5MAHozAejNBKA3E4De
         TAB6MwHozQSgNxOA3kwAejMB6M0EoDcTgN5MAHozAejNBKA3E4DeTAB6MwHozQSgNxOA3kwAejMB6M0E
         oDcTgN5MAHozAejNBKA3E4DeTAB6MwHozQSgNxOA3kwAejMB6M0EoDcTgN5MAHozAejNBKA3E4DeTAB6
         MwHozQSgNxOA3kwAejMB6M0EoDcTgN5MAHozAejNBKA3E4DeTAB6MwHozQSgNxOA3kwAejMB6M0EoDcT
@@ -4789,7 +4789,7 @@
         ejMB6M0EoDcTgN5MAHozAejNBKA3E4DeTAB6MwHozQSgNxOA3kwAejMB6M0EoDcTgN5MAHozAejNBKA3
         E4DeTAB6MwHozQSgNxOA3kwAejMB6M0EoDcTgN5MAHozAejNBKA3E4DeTAB6MwHozQSgNxOA3kwAejMB
         6M0EoDcTgN5MAHozAejNBKA3E4DeTAB6MwHozQSgNxOA3kwAejMB6M0EoDcTgN5MAHozAejNBKA3E4De
-        TAB6MwHozQSgNxOA3kwAejMB6M0EoDcTgNq9D7twztel0clrAAAAAElFTkSuQmCC
+        TAB6MwHozQSgNxOA2r0Pu3DO16XRyWsAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
