@@ -33,8 +33,10 @@ namespace ProyectoSimulacionCompuertasLogicas
         {
             Bits1TextBox.Text = "";
             Bits2TextBox.Text = "";
+            Bits3TextBox.Text = "";
             ResultadoFila1TextBox.Text = "";
             ResultadoFila2TextBox.Text = "";
+            ResultadoFila3TextBox.Text = "";
             ResultadoColumna1TextBox.Text = "";
             ResultadoColumna2TextBox.Text = "";
             ResultadoColumna3TextBox.Text = "";
@@ -52,6 +54,19 @@ namespace ProyectoSimulacionCompuertasLogicas
             Primer2ComboBox.SelectedIndex = -1;
             Segundo2ComboBox.SelectedIndex = -1;
             Tercer2ComboBox.SelectedIndex = -1;
+            Primer3ComboBox.SelectedIndex = -1;
+            Segundo3ComboBox.SelectedIndex = -1;
+            Tercer3ComboBox.SelectedIndex = -1;
+
+            Primer1PictureBox.Image = ArrgeloByteToImagen(ImagenToArregloByte(VaciaPictureBox.Image));
+            Segunda1PictureBox.Image = ArrgeloByteToImagen(ImagenToArregloByte(VaciaPictureBox.Image));
+            Tercera1PictureBox.Image = ArrgeloByteToImagen(ImagenToArregloByte(VaciaPictureBox.Image));
+            Primer2PictureBox.Image = ArrgeloByteToImagen(ImagenToArregloByte(VaciaPictureBox.Image));
+            Segunda2PictureBox.Image = ArrgeloByteToImagen(ImagenToArregloByte(VaciaPictureBox.Image));
+            Tercera2PictureBox.Image = ArrgeloByteToImagen(ImagenToArregloByte(VaciaPictureBox.Image));
+            Primer3PictureBox.Image = ArrgeloByteToImagen(ImagenToArregloByte(VaciaPictureBox.Image));
+            Segunda3PictureBox.Image = ArrgeloByteToImagen(ImagenToArregloByte(VaciaPictureBox.Image));
+            Tercera3PictureBox.Image = ArrgeloByteToImagen(ImagenToArregloByte(VaciaPictureBox.Image));
         }
         private void ValidarEntrada()
         {
@@ -1131,10 +1146,10 @@ namespace ProyectoSimulacionCompuertasLogicas
             bool paso = true;
 
             if (Bits3TextBox.TextLength != Bits)
-                errorProvider.SetError(ResultadoColumna2TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+                errorProvider.SetError(ResultadoColumna3TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
             else
             {
-                ResultadoColumna2TextBox.Text = Convert.ToString(ObtenerResultado3(Compuerta1, Compuerta2, Compuerta3, ObtenerResultado1(Compuerta1, paso), ObtenerResultado2(Compuerta1, Compuerta2, ObtenerResultado1(Compuerta1, paso), paso), paso));
+                ResultadoColumna3TextBox.Text = Convert.ToString(ObtenerResultado3(Compuerta1, Compuerta2, Compuerta3, ObtenerResultado1(Compuerta1, paso), ObtenerResultado2(Compuerta1, Compuerta2, ObtenerResultado1(Compuerta1, paso), paso), paso));
             }
         }
 
