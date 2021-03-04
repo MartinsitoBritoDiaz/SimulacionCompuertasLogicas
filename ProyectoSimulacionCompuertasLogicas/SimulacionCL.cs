@@ -249,7 +249,6 @@ namespace ProyectoSimulacionCompuertasLogicas
 
         }
 
-
         private void ValidarEntrada2()
         {
             errorProvider.Clear();
