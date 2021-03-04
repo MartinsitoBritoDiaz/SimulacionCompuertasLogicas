@@ -238,7 +238,7 @@ namespace ProyectoSimulacionCompuertasLogicas
                 Compuerta3 = Tercer1ComboBox.Text;
             }
             
-            bool paso = true;
+            int paso = 1;
 
             if (Bits1TextBox.TextLength != Bits)
                 errorProvider.SetError(Bits1TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
@@ -419,7 +419,7 @@ namespace ProyectoSimulacionCompuertasLogicas
                 Compuerta3 = Tercer2ComboBox.Text;
             }
 
-            bool paso = false;
+            int paso = 2;
 
             if (Bits2TextBox.TextLength != Bits)
                 errorProvider.SetError(Bits2TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
@@ -600,7 +600,7 @@ namespace ProyectoSimulacionCompuertasLogicas
                 Compuerta3 = Tercer3ComboBox.Text;
             }
 
-            bool paso = false;
+            int paso = 3;
 
             if (Bits3TextBox.TextLength != Bits)
                 errorProvider.SetError(Bits3TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
@@ -782,13 +782,13 @@ namespace ProyectoSimulacionCompuertasLogicas
                 Compuerta3 = Primer3ComboBox.Text;
             }
 
-            bool paso = true;
+            int paso = 1;
 
-            if (Bits1TextBox.TextLength != Bits)
-                errorProvider.SetError(ResultadoColumna1TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            if (BitsC1TextBox.TextLength != Bits)
+                errorProvider.SetError(BitsC1TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
             else
             {
-                ResultadoColumna1TextBox.Text = Convert.ToString(ObtenerResultado3(Compuerta1, Compuerta2, Compuerta3, ObtenerResultado1(Compuerta1, paso), ObtenerResultado2(Compuerta1, Compuerta2, ObtenerResultado1(Compuerta1, paso), paso), paso));
+                ResultadoColumna1TextBox.Text = Convert.ToString(ObtenerResultado13(Compuerta1, Compuerta2, Compuerta3, ObtenerResultado11(Compuerta1, paso), ObtenerResultado12(Compuerta1, Compuerta2, ObtenerResultado11(Compuerta1, paso), paso), paso));
             }
         }
 
@@ -962,13 +962,13 @@ namespace ProyectoSimulacionCompuertasLogicas
                 Compuerta3 = Segundo3ComboBox.Text;
             }
 
-            bool paso = true;
+            int paso = 2;
 
-            if (Bits2TextBox.TextLength != Bits)
-                errorProvider.SetError(ResultadoColumna2TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            if (BitsC2TextBox.TextLength != Bits)
+                errorProvider.SetError(BitsC2TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
             else
             {
-                ResultadoColumna2TextBox.Text = Convert.ToString(ObtenerResultado3(Compuerta1, Compuerta2, Compuerta3, ObtenerResultado1(Compuerta1, paso), ObtenerResultado2(Compuerta1, Compuerta2, ObtenerResultado1(Compuerta1, paso), paso), paso));
+                ResultadoColumna2TextBox.Text = Convert.ToString(ObtenerResultado13(Compuerta1, Compuerta2, Compuerta3, ObtenerResultado11(Compuerta1, paso), ObtenerResultado12(Compuerta1, Compuerta2, ObtenerResultado11(Compuerta1, paso), paso), paso));
             }
         }
 
@@ -1142,27 +1142,34 @@ namespace ProyectoSimulacionCompuertasLogicas
                 Compuerta3 = Tercer3ComboBox.Text;
             }
 
-            bool paso = true;
+            int paso = 3;
 
-            if (Bits3TextBox.TextLength != Bits)
-                errorProvider.SetError(ResultadoColumna3TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            if (BitsC3TextBox.TextLength != Bits)
+                errorProvider.SetError(BitsC3TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
             else
             {
-                ResultadoColumna3TextBox.Text = Convert.ToString(ObtenerResultado3(Compuerta1, Compuerta2, Compuerta3, ObtenerResultado1(Compuerta1, paso), ObtenerResultado2(Compuerta1, Compuerta2, ObtenerResultado1(Compuerta1, paso), paso), paso));
+                ResultadoColumna3TextBox.Text = Convert.ToString(ObtenerResultado13(Compuerta1, Compuerta2, Compuerta3, ObtenerResultado11(Compuerta1, paso), ObtenerResultado12(Compuerta1, Compuerta2, ObtenerResultado11(Compuerta1, paso), paso), paso));
             }
         }
 
 
-        public int ObtenerResultado1(string c1, bool paso)
+        public int ObtenerResultado1(string c1, int paso)
         {
 
             int resultado1 = 0;
             char[] arrayChar;
 
-            if(paso)
+            if (paso == 1)
                 arrayChar = Bits1TextBox.Text.ToCharArray();
             else
-                arrayChar = Bits2TextBox.Text.ToCharArray();
+            {
+                if (paso == 2)
+                    arrayChar = Bits2TextBox.Text.ToCharArray();
+                else
+                {
+                    arrayChar = Bits3TextBox.Text.ToCharArray();
+                }
+            }  
 
 
             if (String.Equals(c1, "YES"))
@@ -1238,18 +1245,24 @@ namespace ProyectoSimulacionCompuertasLogicas
         }
 
        
-        public int ObtenerResultado2(string c1,string c,int resultado1, bool paso)
+        public int ObtenerResultado2(string c1,string c,int resultado1, int paso)
         {
             int resultado2 = 0;
             int indice = 2;
             char[] arrayChar;
 
-            if (paso)
+            if (paso == 1)
                 arrayChar = Bits1TextBox.Text.ToCharArray();
             else
-                arrayChar = Bits2TextBox.Text.ToCharArray();
+            {
+                if (paso == 2)
+                    arrayChar = Bits2TextBox.Text.ToCharArray();
+                else
+                {
+                    arrayChar = Bits3TextBox.Text.ToCharArray();
+                }
+            }
 
-            
             if (String.Equals(c1, "YES") || (String.Equals(c1, "NOT")))
                 indice = 1;
 
@@ -1328,16 +1341,23 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             return resultado2;
         }
-        public int ObtenerResultado3(string c1, string c2, string c, int resultado1, int resultado2, bool paso)
+        public int ObtenerResultado3(string c1, string c2, string c, int resultado1, int resultado2, int paso)
         {
             int resultado3 = 0;
             int indice = 1;
             char[] arrayChar;
 
-            if (paso)
+            if (paso == 1)
                 arrayChar = Bits1TextBox.Text.ToCharArray();
             else
-                arrayChar = Bits2TextBox.Text.ToCharArray();
+            {
+                if (paso == 2)
+                    arrayChar = Bits2TextBox.Text.ToCharArray();
+                else
+                {
+                    arrayChar = Bits3TextBox.Text.ToCharArray();
+                }
+            }
 
             if (String.Equals(c, "YES"))
             {
@@ -1423,6 +1443,299 @@ namespace ProyectoSimulacionCompuertasLogicas
             }
             return resultado3;
         }
+
+        public int ObtenerResultado11(string c1, int paso)
+        {
+
+            int resultado1 = 0;
+            char[] arrayChar;
+
+            if (paso == 1)
+                arrayChar = BitsC1TextBox.Text.ToCharArray();
+            else
+            {
+                if (paso == 2)
+                    arrayChar = BitsC2TextBox.Text.ToCharArray();
+                else
+                {
+                    arrayChar = BitsC3TextBox.Text.ToCharArray();
+                }
+            }
+
+
+            if (String.Equals(c1, "YES"))
+            {
+                if (arrayChar[0] == '1')
+                    resultado1 = 1;
+                else
+                    resultado1 = 0;
+            }
+
+            if (String.Equals(c1, "NOT"))
+            {
+                if (arrayChar[0] == '1')
+                    resultado1 = 0;
+                else
+                    resultado1 = 1;
+            }
+
+            if (String.Equals(c1, "AND"))
+            {
+                if (arrayChar[0] == '1' && arrayChar[1] == '1')
+                    resultado1 = 1;
+                else
+                    resultado1 = 0;
+            }
+
+            if (String.Equals(c1, "NAND"))
+            {
+                if (arrayChar[0] == '1' && arrayChar[1] == '1')
+                    resultado1 = 0;
+                else
+                    resultado1 = 1;
+            }
+
+            if (String.Equals(c1, "OR"))
+            {
+                if (arrayChar[0] == '0' && arrayChar[1] == '0')
+                    resultado1 = 0;
+                else
+                    resultado1 = 1;
+            }
+
+            if (String.Equals(c1, "NOR"))
+            {
+                if (arrayChar[0] == '0' && arrayChar[1] == '0')
+                    resultado1 = 1;
+                else
+                    resultado1 = 0;
+            }
+
+            if (String.Equals(c1, "XOR"))
+            {
+                if (arrayChar[0] == '0' && arrayChar[1] == '0')
+                    resultado1 = 0;
+                else
+                    if (arrayChar[0] == '1' && arrayChar[1] == '1')
+                    resultado1 = 0;
+                else
+                    resultado1 = 1;
+            }
+
+            if (String.Equals(c1, "XNOR"))
+            {
+                if (arrayChar[0] == '0' && arrayChar[1] == '0')
+                    resultado1 = 1;
+                else
+                    if (arrayChar[0] == '1' && arrayChar[1] == '1')
+                    resultado1 = 1;
+                else
+                    resultado1 = 0;
+
+            }
+            return resultado1;
+        }
+
+
+        public int ObtenerResultado12(string c1, string c, int resultado1, int paso)
+        {
+            int resultado2 = 0;
+            int indice = 2;
+            char[] arrayChar;
+
+            if (paso == 1)
+                arrayChar = BitsC1TextBox.Text.ToCharArray();
+            else
+            {
+                if (paso == 2)
+                    arrayChar = BitsC2TextBox.Text.ToCharArray();
+                else
+                {
+                    arrayChar = BitsC3TextBox.Text.ToCharArray();
+                }
+            }
+
+            if (String.Equals(c1, "YES") || (String.Equals(c1, "NOT")))
+                indice = 1;
+
+
+            if (String.Equals(c, "YES"))
+            {
+                if (resultado1 == 1)
+                    resultado2 = 1;
+                else
+                    resultado2 = 0;
+            }
+
+            if (String.Equals(c, "NOT"))
+            {
+                if (resultado1 == 1)
+                    resultado2 = 0;
+                else
+                    resultado2 = 1;
+            }
+
+            if (String.Equals(c, "AND"))
+            {
+                if (arrayChar[indice] == '1' && resultado1 == 1)
+                    resultado2 = 1;
+                else
+                    resultado2 = 0;
+            }
+
+            if (String.Equals(c, "NAND"))
+            {
+                if (arrayChar[indice] == '1' && resultado1 == 1)
+                    resultado2 = 0;
+                else
+                    resultado2 = 1;
+            }
+
+            if (String.Equals(c, "OR"))
+            {
+                if (arrayChar[indice] == '0' && resultado1 == 0)
+                    resultado2 = 0;
+                else
+                    resultado2 = 1;
+            }
+
+            if (String.Equals(c, "NOR"))
+            {
+                if (arrayChar[indice] == '0' && resultado1 == 0)
+                    resultado2 = 1;
+                else
+                    resultado2 = 0;
+            }
+
+            if (String.Equals(c, "XOR"))
+            {
+                if (arrayChar[indice] == '0' && resultado1 == 0)
+                    resultado2 = 0;
+                else
+                    if (arrayChar[indice] == '1' && resultado1 == 1)
+                    resultado2 = 0;
+                else
+                    resultado2 = 1;
+            }
+
+            if (String.Equals(c, "XNOR"))
+            {
+                if (arrayChar[indice] == '0' && resultado1 == 0)
+                    resultado2 = 1;
+                else
+                    if (arrayChar[indice] == '1' && resultado1 == 1)
+                    resultado2 = 1;
+                else
+                    resultado2 = 0;
+
+            }
+
+
+            return resultado2;
+        }
+        public int ObtenerResultado13(string c1, string c2, string c, int resultado1, int resultado2, int paso)
+        {
+            int resultado3 = 0;
+            int indice = 1;
+            char[] arrayChar;
+
+            if (paso == 1)
+                arrayChar = BitsC1TextBox.Text.ToCharArray();
+            else
+            {
+                if (paso == 2)
+                    arrayChar = BitsC2TextBox.Text.ToCharArray();
+                else
+                {
+                    arrayChar = BitsC3TextBox.Text.ToCharArray();
+                }
+            }
+
+            if (String.Equals(c, "YES"))
+            {
+                if (resultado2 == 1)
+                    resultado3 = 1;
+                else
+                    resultado3 = 0;
+            }
+
+            if (String.Equals(c, "NOT"))
+            {
+                if (resultado2 == 1)
+                    resultado3 = 0;
+                else
+                    resultado3 = 1;
+            }
+
+            if ((!String.Equals(c1, "YES") || !String.Equals(c1, "NOT")) && (String.Equals(c2, "YES") || String.Equals(c2, "NOT")))
+                indice = 2;
+            else
+                if ((String.Equals(c1, "YES") || String.Equals(c1, "NOT")) && (!String.Equals(c2, "YES") || !String.Equals(c2, "NOT")))
+                indice = 2;
+            else
+                    if ((!String.Equals(c1, "YES") || !String.Equals(c1, "NOT")) && (!String.Equals(c2, "YES") || !String.Equals(c2, "NOT")))
+                indice = 3;
+
+            if ((String.Equals(c1, "YES") || String.Equals(c1, "NOT")) && (String.Equals(c2, "YES") || String.Equals(c2, "NOT")))
+                indice = 1;
+
+            if (String.Equals(c, "AND"))
+            {
+                if (arrayChar[indice] == '1' && resultado2 == 1)
+                    resultado3 = 1;
+                else
+                    resultado3 = 0;
+            }
+
+            if (String.Equals(c, "NAND"))
+            {
+                if (arrayChar[indice] == '1' && resultado2 == 1)
+                    resultado3 = 0;
+                else
+                    resultado3 = 1;
+            }
+
+            if (String.Equals(c, "OR"))
+            {
+                if (arrayChar[indice] == '0' && resultado2 == 0)
+                    resultado3 = 0;
+                else
+                    resultado3 = 1;
+            }
+
+            if (String.Equals(c, "NOR"))
+            {
+                if (arrayChar[indice] == '0' && resultado2 == 0)
+                    resultado3 = 1;
+                else
+                    resultado3 = 0;
+            }
+
+            if (String.Equals(c, "XOR"))
+            {
+                if (arrayChar[indice] == '0' && resultado2 == 0)
+                    resultado3 = 0;
+                else
+                    if (arrayChar[indice] == '1' && resultado1 == 1)
+                    resultado3 = 0;
+                else
+                    resultado3 = 1;
+            }
+
+            if (String.Equals(c, "XNOR"))
+            {
+                if (arrayChar[indice] == '0' && resultado2 == 0)
+                    resultado3 = 1;
+                else
+                    if (arrayChar[indice] == '1' && resultado2 == 1)
+                    resultado3 = 1;
+                else
+                    resultado3 = 0;
+
+            }
+            return resultado3;
+        }
+
         private void AsignarImagenesByte()
         {
              YES.Imagen = ImagenToArregloByte(YESPictureBox.Image);
@@ -1433,14 +1746,6 @@ namespace ProyectoSimulacionCompuertasLogicas
              NOR.Imagen = ImagenToArregloByte(NORpictureBox.Image);
              XOR.Imagen = ImagenToArregloByte(XORpictureBox.Image);
              XNOR.Imagen = ImagenToArregloByte(XNORpictureBox.Image);
-        }
-
-        private void ValidarInicio()
-        {
-            if (!String.IsNullOrWhiteSpace(Primer1ComboBox.Text) && !String.IsNullOrWhiteSpace(Segundo1ComboBox.Text) && !String.IsNullOrWhiteSpace(Tercer1ComboBox.Text)) 
-                InicioPictureBox.Visible = true;
-            else
-                InicioPictureBox.Visible = false;
         }
 
         private Image AsignarImagenAlPictureBox(string cadenaCL)
@@ -1598,7 +1903,6 @@ namespace ProyectoSimulacionCompuertasLogicas
             bool paso = YEScheckBox.Checked;
 
             CambiarDatosCombo(paso, "YES");
-            ValidarInicio();
         }
 
         private void NOTcheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1621,7 +1925,6 @@ namespace ProyectoSimulacionCompuertasLogicas
             bool paso = NOTcheckBox.Checked;
 
             CambiarDatosCombo(paso, "NOT");
-            ValidarInicio();
 
         }
 
@@ -1645,7 +1948,6 @@ namespace ProyectoSimulacionCompuertasLogicas
             bool paso = ANDcheckBox.Checked;
 
             CambiarDatosCombo(paso, "AND");
-            ValidarInicio();
 
         }
 
@@ -1669,7 +1971,6 @@ namespace ProyectoSimulacionCompuertasLogicas
             bool paso = NANDcheckBox.Checked;
 
             CambiarDatosCombo(paso, "NAND");
-            ValidarInicio();
 
         }
 
@@ -1693,7 +1994,6 @@ namespace ProyectoSimulacionCompuertasLogicas
             bool paso = ORcheckBox.Checked;
 
             CambiarDatosCombo(paso, "OR");
-            ValidarInicio();
 
         }
 
@@ -1717,7 +2017,6 @@ namespace ProyectoSimulacionCompuertasLogicas
             bool paso = NORcheckBox.Checked;
 
             CambiarDatosCombo(paso, "NOR");
-            ValidarInicio();
 
         }
 
@@ -1741,7 +2040,6 @@ namespace ProyectoSimulacionCompuertasLogicas
             bool paso = XORcheckBox.Checked;
 
             CambiarDatosCombo(paso, "XOR");
-            ValidarInicio();
 
         }
 
@@ -1765,7 +2063,6 @@ namespace ProyectoSimulacionCompuertasLogicas
             bool paso = XNORcheckBox.Checked;
 
             CambiarDatosCombo(paso, "XNOR");
-            ValidarInicio();
 
         }
 
@@ -1774,14 +2071,16 @@ namespace ProyectoSimulacionCompuertasLogicas
             EliminarOpciones(Primer1ComboBox.Text);
             Primer1PictureBox.Image = AsignarImagenAlPictureBox(Primer1ComboBox.Text);
 
-            ValidarInicio();
+            InicioPictureBox.Visible = true;
+
         }
 
         private void SegundoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             EliminarOpciones2(Segundo1ComboBox.Text);
             Segunda1PictureBox.Image = AsignarImagenAlPictureBox(Segundo1ComboBox.Text);
-            ValidarInicio();
+            InicioPictureBox.Visible = true;
+
 
         }
 
@@ -1789,7 +2088,8 @@ namespace ProyectoSimulacionCompuertasLogicas
         {
             EliminarOpciones3(Tercer1ComboBox.Text);
             Tercera1PictureBox.Image = AsignarImagenAlPictureBox(Tercer1ComboBox.Text);
-            ValidarInicio();
+            InicioPictureBox.Visible = true;
+
 
         }
 
@@ -1800,7 +2100,8 @@ namespace ProyectoSimulacionCompuertasLogicas
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            ValidarEntrada();
+            if (!String.IsNullOrWhiteSpace(Primer1ComboBox.Text) && !String.IsNullOrWhiteSpace(Segundo1ComboBox.Text) && !String.IsNullOrWhiteSpace(Tercer1ComboBox.Text))
+               ValidarEntrada();
 
             if (!String.IsNullOrWhiteSpace(Primer2ComboBox.Text) && !String.IsNullOrWhiteSpace(Segundo2ComboBox.Text) && !String.IsNullOrWhiteSpace(Tercer2ComboBox.Text))
                 ValidarEntrada2();
@@ -1816,8 +2117,1536 @@ namespace ProyectoSimulacionCompuertasLogicas
 
             if (!String.IsNullOrWhiteSpace(Tercer1ComboBox.Text) && !String.IsNullOrWhiteSpace(Tercer2ComboBox.Text) && !String.IsNullOrWhiteSpace(Tercer3ComboBox.Text))
                 ValidarColumna3();
+
+
+            //Evalua si solo hay una sola compuerta en la fila 1
+            if (!String.IsNullOrWhiteSpace(Primer1ComboBox.Text) && String.IsNullOrWhiteSpace(Segundo1ComboBox.Text) && String.IsNullOrWhiteSpace(Tercer1ComboBox.Text))
+                ValidarFila1Parte(1);
+
+            if (String.IsNullOrWhiteSpace(Primer1ComboBox.Text) && !String.IsNullOrWhiteSpace(Segundo1ComboBox.Text) && String.IsNullOrWhiteSpace(Tercer1ComboBox.Text))
+                ValidarFila1Parte(2);
+            
+            if (String.IsNullOrWhiteSpace(Primer1ComboBox.Text) && String.IsNullOrWhiteSpace(Segundo1ComboBox.Text) && !String.IsNullOrWhiteSpace(Tercer1ComboBox.Text))
+                ValidarFila1Parte(3);
+
+            //Evalua si solo hay una sola compuerta en la fila 2
+            if (!String.IsNullOrWhiteSpace(Primer2ComboBox.Text) && String.IsNullOrWhiteSpace(Segundo2ComboBox.Text) && String.IsNullOrWhiteSpace(Tercer2ComboBox.Text))
+                ValidarFila2Parte(1);
+
+            if (String.IsNullOrWhiteSpace(Primer2ComboBox.Text) && !String.IsNullOrWhiteSpace(Segundo2ComboBox.Text) && String.IsNullOrWhiteSpace(Tercer2ComboBox.Text))
+                ValidarFila2Parte(2);
+
+            if (String.IsNullOrWhiteSpace(Primer2ComboBox.Text) && String.IsNullOrWhiteSpace(Segundo2ComboBox.Text) && !String.IsNullOrWhiteSpace(Tercer2ComboBox.Text))
+                ValidarFila2Parte(3);
+
+            //Evalua si solo hay una sola compuerta en la fila 3
+            if (!String.IsNullOrWhiteSpace(Primer3ComboBox.Text) && String.IsNullOrWhiteSpace(Segundo3ComboBox.Text) && String.IsNullOrWhiteSpace(Tercer3ComboBox.Text))
+                ValidarFila3Parte(1);
+
+            if (String.IsNullOrWhiteSpace(Primer3ComboBox.Text) && !String.IsNullOrWhiteSpace(Segundo3ComboBox.Text) && String.IsNullOrWhiteSpace(Tercer3ComboBox.Text))
+                ValidarFila3Parte(2);
+
+            if (String.IsNullOrWhiteSpace(Primer3ComboBox.Text) && String.IsNullOrWhiteSpace(Segundo3ComboBox.Text) && !String.IsNullOrWhiteSpace(Tercer3ComboBox.Text))
+                ValidarFila3Parte(3);
+
+            //Evalua si solo hay una sola compuerta en la columna 1
+            if (!string.IsNullOrWhiteSpace(BitsC1TextBox.Text))
+            {
+                if (!String.IsNullOrWhiteSpace(Primer1ComboBox.Text) && String.IsNullOrWhiteSpace(Primer2ComboBox.Text) && String.IsNullOrWhiteSpace(Primer3ComboBox.Text))
+                    ValidarColumna1PartePrimer(1);
+
+                if (String.IsNullOrWhiteSpace(Primer1ComboBox.Text) && !String.IsNullOrWhiteSpace(Primer2ComboBox.Text) && String.IsNullOrWhiteSpace(Primer3ComboBox.Text))
+                    ValidarColumna1PartePrimer(2);
+
+                if (String.IsNullOrWhiteSpace(Primer1ComboBox.Text) && String.IsNullOrWhiteSpace(Primer2ComboBox.Text) && !String.IsNullOrWhiteSpace(Primer3ComboBox.Text))
+                    ValidarColumna1PartePrimer(3);
+            }
+
+            //Evalua si solo hay una sola compuerta en la columna 2
+            if (!string.IsNullOrWhiteSpace(BitsC2TextBox.Text))
+            {
+                if (!String.IsNullOrWhiteSpace(Segundo1ComboBox.Text) && String.IsNullOrWhiteSpace(Segundo2ComboBox.Text) && String.IsNullOrWhiteSpace(Segundo3ComboBox.Text))
+                    ValidarColumna2ParteSegundo(1);
+
+                if (String.IsNullOrWhiteSpace(Segundo1ComboBox.Text) && !String.IsNullOrWhiteSpace(Segundo2ComboBox.Text) && String.IsNullOrWhiteSpace(Segundo3ComboBox.Text))
+                    ValidarColumna2ParteSegundo(2);
+
+                if (String.IsNullOrWhiteSpace(Segundo1ComboBox.Text) && String.IsNullOrWhiteSpace(Segundo2ComboBox.Text) && !String.IsNullOrWhiteSpace(Segundo3ComboBox.Text))
+                    ValidarColumna2ParteSegundo(3);
+            }
+
+            //Evalua si solo hay una sola compuerta en la columna 3
+            if(!string.IsNullOrWhiteSpace(BitsC3TextBox.Text))
+            {
+                if (!String.IsNullOrWhiteSpace(Tercer1ComboBox.Text) && String.IsNullOrWhiteSpace(Tercer2ComboBox.Text) && String.IsNullOrWhiteSpace(Tercer3ComboBox.Text))
+                    ValidarColumna3ParteTercer(1);
+
+                if (String.IsNullOrWhiteSpace(Tercer1ComboBox.Text) && !String.IsNullOrWhiteSpace(Tercer2ComboBox.Text) && String.IsNullOrWhiteSpace(Tercer3ComboBox.Text))
+                    ValidarColumna3ParteTercer(2);
+
+                if (String.IsNullOrWhiteSpace(Tercer1ComboBox.Text) && String.IsNullOrWhiteSpace(Tercer2ComboBox.Text) && !String.IsNullOrWhiteSpace(Tercer3ComboBox.Text))
+                    ValidarColumna3ParteTercer(3);
+            }
+
         }
 
+        private void ValidarFila1Parte(int opcion)
+        {
+            errorProvider.Clear();
+            int Bits = 0;
+            string Compuerta1 = "";
+            string Compuerta2 = "";
+            string Compuerta3 = "";
+
+            if(opcion == 1)
+            {
+                if (String.Equals(Primer1ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+            }
+
+            //Segundo Combo------------------------------------
+            if (opcion == 2)
+            {
+                if (String.Equals(Segundo1ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta2 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta2 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta2 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta2 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta2 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta2 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta2 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta2 = Segundo1ComboBox.Text;
+                }
+            }
+            
+            //Tercer Combo------------------------------------
+            if(opcion == 3)
+            {
+                if (String.Equals(Tercer1ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta3 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta3 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta3 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta3 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta3 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta3 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta3 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta3 = Tercer1ComboBox.Text;
+                }
+            }
+            
+
+            int paso = 1;
+
+            if (Bits1TextBox.TextLength != Bits)
+                errorProvider.SetError(Bits1TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            else
+            {
+                if(opcion == 1)
+                    ResultadoFila1TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta1, paso));
+
+                if (opcion == 2)
+                    ResultadoFila1TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta2, paso));
+
+                if (opcion == 3)
+                    ResultadoFila1TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta3, paso));
+            }
+
+        }
+
+        private void ValidarFila2Parte(int opcion)
+        {
+            errorProvider.Clear();
+            int Bits = 0;
+            string Compuerta1 = "";
+            string Compuerta2 = "";
+            string Compuerta3 = "";
+
+            if (opcion == 1)
+            {
+                if (String.Equals(Primer2ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+            }
+
+            //Segundo Combo------------------------------------
+            if (opcion == 2)
+            {
+                if (String.Equals(Segundo2ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+            }
+
+            //Tercer Combo------------------------------------
+            if (opcion == 3)
+            {
+                if (String.Equals(Tercer2ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+            }
+
+
+            int paso = 2;
+
+            if (Bits2TextBox.TextLength != Bits)
+                errorProvider.SetError(Bits2TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            else
+            {
+                if (opcion == 1)
+                    ResultadoFila2TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta1, paso));
+
+                if (opcion == 2)
+                    ResultadoFila2TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta2, paso));
+
+                if (opcion == 3)
+                    ResultadoFila2TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta3, paso));
+            }
+
+        }
+
+        private void ValidarFila3Parte(int opcion)
+        {
+            errorProvider.Clear();
+            int Bits = 0;
+            string Compuerta1 = "";
+            string Compuerta2 = "";
+            string Compuerta3 = "";
+
+            if (opcion == 1)
+            {
+                if (String.Equals(Primer3ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+            }
+
+            //Segundo Combo------------------------------------
+            if (opcion == 2)
+            {
+                if (String.Equals(Segundo3ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+            }
+
+            //Tercer Combo------------------------------------
+            if (opcion == 3)
+            {
+                if (String.Equals(Tercer3ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+            }
+
+
+            int paso = 3;
+
+            if (Bits3TextBox.TextLength != Bits)
+                errorProvider.SetError(Bits3TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            else
+            {
+                if (opcion == 1)
+                    ResultadoFila3TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta1, paso));
+
+                if (opcion == 2)
+                    ResultadoFila3TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta2, paso));
+
+                if (opcion == 3)
+                    ResultadoFila3TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta3, paso));
+            }
+
+        }
+
+
+        private void ValidarColumna1PartePrimer(int opcion)
+        {
+            errorProvider.Clear();
+            int Bits = 0;
+            string Compuerta1 = "";
+            string Compuerta2 = "";
+            string Compuerta3 = "";
+
+            if (opcion == 1)
+            {
+                if (String.Equals(Primer1ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+
+                if (String.Equals(Primer1ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta1 = Primer1ComboBox.Text;
+                }
+            }
+
+            //Segundo Combo------------------------------------
+            if (opcion == 2)
+            {
+                if (String.Equals(Primer2ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta2 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta2 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta2 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta2 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta2 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta2 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta2 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta2 = Primer2ComboBox.Text;
+                }
+            }
+
+            //Tercer Combo------------------------------------
+            if (opcion == 3)
+            {
+                if (String.Equals(Primer3ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta3 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta3 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta3 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta3 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta3 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta3 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta3 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta3 = Primer3ComboBox.Text;
+                }
+            }
+
+
+            int paso = 1;
+
+            if (BitsC1TextBox.TextLength != Bits)
+                errorProvider.SetError(BitsC1TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            else
+            {
+                if (opcion == 1)
+                    ResultadoColumna1TextBox.Text = Convert.ToString(ObtenerResultado11(Compuerta1, paso));
+
+                if (opcion == 2)
+                    ResultadoColumna1TextBox.Text = Convert.ToString(ObtenerResultado11(Compuerta2, paso));
+
+                if (opcion == 3)
+                    ResultadoColumna1TextBox.Text = Convert.ToString(ObtenerResultado11(Compuerta3, paso));
+            }
+
+        }
+
+
+        private void ValidarColumna2ParteSegundo(int opcion)
+        {
+            errorProvider.Clear();
+            int Bits = 0;
+            string Compuerta1 = "";
+            string Compuerta2 = "";
+            string Compuerta3 = "";
+
+            if (opcion == 1)
+            {
+                if (String.Equals(Segundo1ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta1 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta1 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta1 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta1 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta1 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta1 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta1 = Segundo1ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo1ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta1 = Segundo1ComboBox.Text;
+                }
+            }
+
+            //Segundo Combo------------------------------------
+            if (opcion == 2)
+            {
+                if (String.Equals(Segundo2ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+            }
+
+            //Tercer Combo------------------------------------
+            if (opcion == 3)
+            {
+                if (String.Equals(Segundo3ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta3 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta3 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta3 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta3 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta3 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta3 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta3 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta3 = Segundo3ComboBox.Text;
+                }
+            }
+
+
+            int paso = 2;
+
+            if (BitsC2TextBox.TextLength != Bits)
+                errorProvider.SetError(BitsC2TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            else
+            {
+                if (opcion == 1)
+                    ResultadoColumna2TextBox.Text = Convert.ToString(ObtenerResultado11(Compuerta1, paso));
+
+                if (opcion == 2)
+                    ResultadoColumna2TextBox.Text = Convert.ToString(ObtenerResultado11(Compuerta2, paso));
+
+                if (opcion == 3)
+                    ResultadoColumna2TextBox.Text = Convert.ToString(ObtenerResultado11(Compuerta3, paso));
+            }
+
+        }
+
+        private void ValidarColumna3ParteTercer(int opcion)
+        {
+            errorProvider.Clear();
+            int Bits = 0;
+            string Compuerta1 = "";
+            string Compuerta2 = "";
+            string Compuerta3 = "";
+
+            if (opcion == 1)
+            {
+                if (String.Equals(Tercer1ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta1 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta1 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta1 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta1 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta1 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta1 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta1 = Tercer1ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer1ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta1 = Tercer1ComboBox.Text;
+                }
+            }
+
+            //Segundo Combo------------------------------------
+            if (opcion == 2)
+            {
+                if (String.Equals(Tercer2ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta2 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta2 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta2 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta2 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta2 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta2 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta2 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta2 = Tercer2ComboBox.Text;
+                }
+            }
+
+            //Tercer Combo------------------------------------
+            if (opcion == 3)
+            {
+                if (String.Equals(Tercer3ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+            }
+
+
+            int paso = 3;
+
+            if (BitsC3TextBox.TextLength != Bits)
+                errorProvider.SetError(BitsC3TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            else
+            {
+                if (opcion == 1)
+                    ResultadoColumna3TextBox.Text = Convert.ToString(ObtenerResultado11(Compuerta1, paso));
+
+                if (opcion == 2)
+                    ResultadoColumna3TextBox.Text = Convert.ToString(ObtenerResultado11(Compuerta2, paso));
+
+                if (opcion == 3)
+                    ResultadoColumna3TextBox.Text = Convert.ToString(ObtenerResultado11(Compuerta3, paso));
+            }
+
+        }
+
+        private void ValidarColumna2Parte(int opcion)
+        {
+            errorProvider.Clear();
+            int Bits = 0;
+            string Compuerta1 = "";
+            string Compuerta2 = "";
+            string Compuerta3 = "";
+
+            if (opcion == 1)
+            {
+                if (String.Equals(Primer2ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+
+                if (String.Equals(Primer2ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta1 = Primer2ComboBox.Text;
+                }
+            }
+
+            //Segundo Combo------------------------------------
+            if (opcion == 2)
+            {
+                if (String.Equals(Segundo2ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo2ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta2 = Segundo2ComboBox.Text;
+                }
+            }
+
+            //Tercer Combo------------------------------------
+            if (opcion == 3)
+            {
+                if (String.Equals(Tercer2ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer2ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta3 = Tercer2ComboBox.Text;
+                }
+            }
+
+
+            int paso = 2;
+
+            if (Bits2TextBox.TextLength != Bits)
+                errorProvider.SetError(Bits2TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            else
+            {
+                if (opcion == 1)
+                    ResultadoFila2TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta1, paso));
+
+                if (opcion == 2)
+                    ResultadoFila2TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta2, paso));
+
+                if (opcion == 3)
+                    ResultadoFila2TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta3, paso));
+            }
+
+        }
+
+        private void ValidarColumna3Parte(int opcion)
+        {
+            errorProvider.Clear();
+            int Bits = 0;
+            string Compuerta1 = "";
+            string Compuerta2 = "";
+            string Compuerta3 = "";
+
+            if (opcion == 1)
+            {
+                if (String.Equals(Primer3ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+
+                if (String.Equals(Primer3ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta1 = Primer3ComboBox.Text;
+                }
+            }
+
+            //Segundo Combo------------------------------------
+            if (opcion == 2)
+            {
+                if (String.Equals(Segundo3ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+
+                if (String.Equals(Segundo3ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta2 = Segundo3ComboBox.Text;
+                }
+            }
+
+            //Tercer Combo------------------------------------
+            if (opcion == 3)
+            {
+                if (String.Equals(Tercer3ComboBox.Text, "YES"))
+                {
+                    Bits += YES.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "NOT"))
+                {
+                    Bits += NOT.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "AND"))
+                {
+                    Bits += AND.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "NAND"))
+                {
+                    Bits += NAND.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "OR"))
+                {
+                    Bits += OR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "NOR"))
+                {
+                    Bits += NOR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "XOR"))
+                {
+                    Bits += XOR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+
+                if (String.Equals(Tercer3ComboBox.Text, "XNOR"))
+                {
+                    Bits += XNOR.CantidadPuertos;
+                    Compuerta3 = Tercer3ComboBox.Text;
+                }
+            }
+
+
+            int paso = 3;
+
+            if (Bits3TextBox.TextLength != Bits)
+                errorProvider.SetError(Bits3TextBox, "Debe de introducir los bits correspondientes a la cantidad de entradas de las compuertas");
+            else
+            {
+                if (opcion == 1)
+                    ResultadoFila3TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta1, paso));
+
+                if (opcion == 2)
+                    ResultadoFila3TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta2, paso));
+
+                if (opcion == 3)
+                    ResultadoFila3TextBox.Text = Convert.ToString(ObtenerResultado1(Compuerta3, paso));
+            }
+
+        }
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -1844,24 +3673,24 @@ namespace ProyectoSimulacionCompuertasLogicas
         {
             EliminarOpciones21(Primer2ComboBox.Text);
             Primer2PictureBox.Image = AsignarImagenAlPictureBox(Primer2ComboBox.Text);
+            InicioPictureBox.Visible = true;
 
-            ValidarInicio();
         }
 
         private void Segundo2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             EliminarOpciones22(Segundo2ComboBox.Text);
             Segunda2PictureBox.Image = AsignarImagenAlPictureBox(Segundo2ComboBox.Text);
+            InicioPictureBox.Visible = true;
 
-            ValidarInicio();
         }
 
         private void Tercer2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             EliminarOpciones23(Tercer2ComboBox.Text);
             Tercera2PictureBox.Image = AsignarImagenAlPictureBox(Tercer2ComboBox.Text);
+            InicioPictureBox.Visible = true;
 
-            ValidarInicio();
         }
 
         private void Primer2PictureBox_Click(object sender, EventArgs e)
@@ -1873,8 +3702,8 @@ namespace ProyectoSimulacionCompuertasLogicas
         {
             EliminarOpciones31(Primer3ComboBox.Text);
             Primer3PictureBox.Image = AsignarImagenAlPictureBox(Primer3ComboBox.Text);
+            InicioPictureBox.Visible = true;
 
-            ValidarInicio();
         }
 
         private void ResultadoFila2TextBox_TextChanged(object sender, EventArgs e)
@@ -1891,16 +3720,15 @@ namespace ProyectoSimulacionCompuertasLogicas
         {
             EliminarOpciones32(Segundo3ComboBox.Text);
             Segunda3PictureBox.Image = AsignarImagenAlPictureBox(Segundo3ComboBox.Text);
+            InicioPictureBox.Visible = true;
 
-            ValidarInicio();
         }
 
         private void Tercer3ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             EliminarOpciones33(Tercer3ComboBox.Text);
             Tercera3PictureBox.Image = AsignarImagenAlPictureBox(Tercer3ComboBox.Text);
-
-            ValidarInicio();
+            InicioPictureBox.Visible = true;
         }
     }
 }
